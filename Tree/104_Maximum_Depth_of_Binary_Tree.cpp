@@ -8,6 +8,8 @@
  * };
  */
 class Solution {
+	// 用後序遍歷(LRV)走一次，維護全域depth
+  // edge case: root是空的,return 0
 public:
     int depth = 1;
     int maxDepth(TreeNode* root) {
