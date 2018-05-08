@@ -16,7 +16,7 @@ public:
         TreeNode* r = root->right;
         queue<TreeNode*> qL,qR;
         qL.push(l);
-        qR.push(r);
+        qR.push(r); 
         
         // 這邊是||或&&其實沒影響,因為能順利對稱到最後的話,兩邊的數量必定一樣
         // 而會造成兩邊q長度不同的情況,就是其中一側左右節點有缺,而另一側沒缺
