@@ -1,0 +1,47 @@
+Tree Traverse整理
+不用DFS的方法, 做三種traverse
+
+前序和中序本質都是一直往左節點移動, 紀錄parent, 讓cur之後能返回遍歷
+只是 V push進ans的時間點不同
+前序在一開始一直往左節點移動時就塞進去
+中序則是在左右進了null才分別把父,爺節點塞進去
+
+後序的話邏輯很複雜
+用deque存答案反著做前序可以簡化很多
+但假如要用stack的話就 頗難
+
+PreOrder(VLR)
+while(!stack.isEmpty() || p != null) {
+    if(p != null) {
+        stack.push(p);
+        result.add(p.val);  // Add before going to children
+        p = p.left;
+    } else {
+        TreeNode node = stack.pop();
+        p = node.right;   
+    }
+}
+
+InOrder(LVR)
+while(!stack.isEmpty() || p != null) {
+    if(p != null) {
+        stack.push(p);
+        p = p.left;
+    } else {
+        TreeNode node = stack.pop();
+        result.add(node.val);  // Add after all left children
+        p = node.right;   
+    }
+}
+
+PostOrder(LRV)
+while(!stack.isEmpty() || p != null) {
+    if(p != null) {
+        stack.push(p);
+        result.addFirst(p.val);  // Reverse the process of preorder
+        p = p.right;             // Reverse the process of preorder
+    } else {
+        TreeNode node = stack.pop();
+        p = node.left;           // Reverse the process of preorder
+    }
+}
