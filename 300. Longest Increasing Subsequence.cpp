@@ -1,4 +1,7 @@
 class Solution {
+    // O(N^2)的做法
+    // 思路很容易, 就是對每個目前
+    // 以此將狀態轉移方程設為dp[i]=max(dp[j]+1), for all j<i, nums[j]<nums[i]
 public:
     int lengthOfLIS(vector<int>& nums) {
         int len = nums.size();
