@@ -15,9 +15,13 @@ public:
 
 // 題意是說, 要我們實作一個peek()能偷看下一個元素的val, 但不會動到iterator的位置
 // 題目註解有強調不要直接操作nums作弊哈哈, 只能用Iterator提供的method
+
 // 第一種方法可以直接用Copy constructor就好, 這樣可以直接知道當下iterator的狀況
 // 做了操作又不會影響到原本的, 所以就對這個copy出來的iterator直接做next然後回傳就好
-// 
+
+// 第二種方法是看別人用一個boolean來紀錄有沒有peek過, 和一個int直接用Iterator::next()來取值
+// 對物件導向還不太熟, 不曉得為何Iterator::next()不會對當前class的iterator造成影響
+
 class PeekingIterator : public Iterator {
 public:
     PeekingIterator(const vector<int>& nums) : Iterator(nums) {
