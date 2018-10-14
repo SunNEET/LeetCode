@@ -1,4 +1,5 @@
 class Solution {
+    // 思路：檢查lower到1st el跟最後一個el到upper, 中間的就把兩側的數分別+1 -1來判斷
 public:
     vector<string> findMissingRanges(vector<int>& nums, int lower, int upper) {
         vector<string> ans;
