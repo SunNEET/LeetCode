@@ -44,3 +44,27 @@ public:
         return res;
     }
 };
+
+class Solution {
+    // Another concise way to do
+public:
+    vector<double> averageOfLevels(TreeNode* root) {
+        vector<double> res;
+        queue<TreeNode*> qT;
+        qT.push(root);
+        double sum = 0.0;
+        while(!qT.empty()) {
+            int sz = qT.size();
+            for(int i=0;i<sz;i++) {
+                TreeNode* cur = qT.front();
+                qT.pop();
+                if(cur->left) qT.push(cur->left);
+                if(cur->right) qT.push(cur->right);
+                sum += cur->val;
+            }
+            res.push_back(sum/sz);
+            sum = 0.0;
+        }
+        return res;
+    }
+};
