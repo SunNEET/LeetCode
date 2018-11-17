@@ -43,8 +43,7 @@ public:
 class Solution {
     // 用 DP[i][j] 來表示點 (i-1,j-1) 當作右下角的點的話，最大能形成多大的正方形
     // 而當前的 DP[i][j]可以由它左邊,上面和左上角的 DP 求得
-    // 詳細的推導可以看圖片
-    
+    // 詳細的推導可以看圖片 DP-221.png
     // 狀態轉移寫成 DP[i][j] = min(dp[i-1][j],dp[i][j-1],dp[i-1][j-1]) + 1
     // Time complexity: O(N^2), n*m
 public:
