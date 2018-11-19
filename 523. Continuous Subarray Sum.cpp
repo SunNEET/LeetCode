@@ -32,7 +32,7 @@ public:
         int sum = 0;
         for(int i=0;i<nums.size();i++) {
             sum += nums[i];
-            if(k) sum %= k;
+            if(k) sum %= k; // k might be zero, so avoid divide by zero.
             if(hash.count(sum) > 0){
                 if(i - hash[sum] > 1)
                     return true;
