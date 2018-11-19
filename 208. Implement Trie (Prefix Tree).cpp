@@ -65,10 +65,55 @@ public:
     }
 };
 
-/**
- * Your Trie object will be instantiated and called as such:
- * Trie obj = new Trie();
- * obj.insert(word);
- * bool param_2 = obj.search(word);
- * bool param_3 = obj.startsWith(prefix);
- */
+// 簡化查找部分的寫法
+class TrieNode {
+public:
+    TrieNode* next[26];
+    bool isWord;
+    TrieNode():isWord(false){
+        memset(next,NULL,sizeof(next));
+    }
+};
+
+class Trie {
+private:
+    TrieNode* root;
+    TrieNode* find(string word) {
+        TrieNode* run = root;
+        // 在 Trie 樹上移動的時候不先判斷有沒有字母節點，就一直給他移動
+        // 最後 return 的時候再判斷是不是停在 isWord 上 還有沒有跑到NULL節點
+        for(int i=0; i<word.length() && run!=NULL; i++) 
+            run = run->next[word[i]-'a'];
+        return run ;
+    }
+public:
+    /** Initialize your data structure here. */
+    Trie() {
+        root = new TrieNode();
+    }
+    
+    /** Inserts a word into the trie. */
+    void insert(string word) {
+        TrieNode* run = root;
+        for(int i=0;i<word.length();i++) {
+            if(!run->next[word[i]-'a'])
+                run->next[word[i]-'a'] = new TrieNode();
+            run = run->next[word[i]-'a'];
+        }
+        run->isWord = true;
+    }
+    
+    /** Returns if the word is in the trie. */
+    bool search(string word) {
+        TrieNode* p = find(word);
+        // 判斷他最後有沒有停在 isWord
+        return p!=NULL && p->isWord;
+    }
+    
+    /** Returns if there is any word in the trie that starts with the given prefix. */
+    bool startsWith(string prefix) {
+        TrieNode* p = find(prefix);
+        // 只要沒跑到NULL就好
+        return p!=NULL;
+    }
+};
