@@ -1,4 +1,15 @@
 class Solution {
+    /*
+        關鍵在把 list 建成圖，可以建成無向圖後用DFS解，也可以用 parent 存 group 關係然後用 union find 解。
+        Union find 作法：用三個 map 分別存 parent, name 和 答案的集合
+        (1) 先初始化成每個 email 的 parent 是自己，owner 都是第 0 個
+        (2) 做 union find 
+        (3) 掃一次全部的 email, 根據剛剛 union find 的結果插入到對應的 set 裡 (set會順便做排序)
+        (4) 把 set 的 value 存到 vector, 然後開頭插入 name
+
+        Time Complexity: O(n*mlog(n*m)), say n is the number of total lists, 
+        m is the number of strings of a list. That log comes from insert operation of set.
+    */
 public:
     vector<vector<string>> accountsMerge(vector<vector<string>>& accounts) {
         vector<vector<string>> ans;
