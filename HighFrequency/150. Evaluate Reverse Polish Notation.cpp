@@ -12,7 +12,7 @@ public:
             // 數字的情況
             if (!map.count(s)) {
                 stack.push(stoi(s));
-            } else { //+-*/的情況
+            } else { // +-*/的情況
                 int op1 = stack.top();
                 stack.pop();
                 int op2 = stack.top();

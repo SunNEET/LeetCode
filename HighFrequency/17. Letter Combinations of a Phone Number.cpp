@@ -25,9 +25,9 @@ public:
         }
         char c = digits[depth];
         for(int i=0;i<hash[c].length();i++) {
-            cur.push_back(hash[c][i]);
-            DFS(digits, ans, depth+1, cur);
-            cur.pop_back();
+            // cur.push_back(hash[c][i]);
+            DFS(digits, ans, depth+1, cur+hash[c][i]);
+            // cur.pop_back();
         }
         return;
     }

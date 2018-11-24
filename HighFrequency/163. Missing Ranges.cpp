@@ -7,7 +7,7 @@ public:
         if(nums.size()==0){
             addRange(ans, lower, upper);
             return ans;
-        
+        }
         // edge case2: 測資會有INT_MIN,跟INT_MAX 所以+-1會爆掉, 要轉成 long long int
         // 考慮 lower 到 nums 起點的missing情況
         addRange(ans, lower, (long long int)nums[0]-1);

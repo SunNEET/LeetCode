@@ -13,8 +13,7 @@ public:
         return DFS(root);
     }
     int DFS(TreeNode* cur) {
-        if(!cur)
-            return 0;
+        if(!cur) return 0;
         return max(DFS(cur->left),DFS(cur->right))+1;
     }
 };
