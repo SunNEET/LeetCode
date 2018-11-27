@@ -7,7 +7,7 @@ class Solution {
         最後，當 r==0 且 l==0 時，判斷目前這樣的字串bracket 是否合法 (另外再寫個function 判斷)
 
         Clarify: 
-        (1)
+        (1) Do I have to return multiple answers? or only one answers?
 
         Time Complexity: O(n*2^n)
         Space Complexity: O(2^n)
