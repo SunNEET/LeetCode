@@ -45,3 +45,62 @@ public:
         }
     }
 };
+
+/**
+ * Definition for binary tree
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode *parent;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class BSTIterator {
+    /*
+        不用 stack，改新增一個 parent node
+    */
+public:
+    
+    TreeNode* last = NULL;
+    
+    BSTIterator(TreeNode *root) {
+        if(root == NULL) return;
+        last = root;
+        while(last->left) last = last->left;
+    }
+
+    /** @return whether we have a next smallest number */
+    bool hasNext() {
+        return last != NULL;
+    }
+
+    /** @return the next smallest number */
+    int next() {
+        TreeNode* cur = last;
+        last = findSuccessor(last);
+        return cur;
+    }
+    
+    TreeNode* findSuccessor(TreeNode* root) {
+        if(root == NULL) return NULL;
+        if(root->right != NULL) {
+            TreeNode* tmp = root->right;
+            while (tmp->left) tmp = tmp->left;
+            return tmp;
+        }
+        TreeNode* parent = root->parent;
+        TreeNode* child = root;
+        while(parent && parent->left != child) {
+            child = parent;
+            parent = parent->parent;
+        }
+        return parent;
+    }
+};
+
+/**
+ * Your BSTIterator will be called like this:
+ * BSTIterator i = BSTIterator(root);
+ * while (i.hasNext()) cout << i.next();
+ */

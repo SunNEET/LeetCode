@@ -12,7 +12,7 @@ public:
     TrieNode* next[26];
     bool is_word;
     TrieNode(): is_word(false) {
-        memset(next,NULL,sizeof(next));
+        memset(next, NULL, sizeof(next));
     }
 };
 

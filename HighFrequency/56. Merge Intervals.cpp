@@ -32,3 +32,22 @@ public:
         return res;
     }
 };
+
+class Solution {
+    /*
+        比較簡潔的作法，直接用 vector.back() 來 determine 和 update 右界
+        
+    */
+public:
+    vector<Interval> merge(vector<Interval>& intervals) {
+        vector<Interval> res;
+        sort(intervals.begin(), intervals.end(), [](const Interval& a, const Interval& b) -> bool { return a.start < b.start; });
+        if(!intervals.size()) return {};
+        res.push_back(intervals[0]);
+        for(int i=1; i<intervals.size(); i++) {
+            if(res.back().end < intervals[i].start) res.push_back(intervals[i]);
+            else res.back().end = max(res.back().end, intervals[i].end);
+        }
+        return res;
+    }
+};

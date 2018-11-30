@@ -54,14 +54,13 @@ public:
         // move the pivot element back to its position
         swap(nums[right], nums[++smaller_part_index]);
         
+        // Largerst
         if((int)nums.size() - 1 - smaller_part_index >= k) 
             return quickSelect(nums,smaller_part_index+1,right,k);
-        else {
-            if((int)nums.size() - 1 - smaller_part_index == k-1)
-                return nums[smaller_part_index];
-            else
-                return quickSelect(nums,left,smaller_part_index-1,k);
-        }
+        else if((int)nums.size() - 1 - smaller_part_index == k-1)
+            return nums[smaller_part_index];
+        else
+            return quickSelect(nums,left,smaller_part_index-1,k);
     }
 };
 

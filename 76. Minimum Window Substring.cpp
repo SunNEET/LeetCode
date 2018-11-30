@@ -7,12 +7,16 @@ class Solution {
         且它還沒在 sliding window 裡找齊 (hash[i] > 0)，就把 counter - 1;
         當 counter == 0 時，表示 [l,r] 內的 value 涵蓋了 target 的字元，更新res和長度
         然後一直移動 l，直到 target 又不滿足 (counter > 0) 了
-    
+
         clarify: 
         (1) Does the input string contain only letters?
         (2) How long the two string can be?
         (3) What should I return if there ie no such window?
         (4) Will it have multiple minimum window?
+
+        Follow up: 
+        (1) 可以允許有 N 個不同 e.g. 允许⼀一个字⺟母不不⼀一样 str1 = acedbg, str2 = xcbe，那么返回cedb
+        作法：將合法的判斷改成 counter <= N 
     */
 public:
     string minWindow(string s, string t) {
