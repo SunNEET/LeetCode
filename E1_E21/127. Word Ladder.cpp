@@ -1,5 +1,7 @@
 class Solution {
-    // 用對單字的每個位置枚舉a~z的方式來做BFS, 一路做到能找到終點為止, 複雜度是O(n*26^l), 非常大
+    // 用對單字的每個位置枚舉a~z的方式來做BFS, 一路做到能找到終點為止, 
+    // 複雜度是O(n*26^l), 非常大, l是單詞長度, n是單詞數目
+
     // 可以靠雙向BFS的技巧來優化, 做到O(n*26^(l/2))
 public:
     int ladderLength(string beginWord, string endWord, vector<string>& wordList) {

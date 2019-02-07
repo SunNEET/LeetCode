@@ -52,7 +52,7 @@ class Solution {
         and increment the left pointer on it will make it smaller or equal.
 
         Time Complexity: O(n)
-        Space Complexity: O(n)
+        Space Complexity: O(1)
     */
 public:
     int subarraySum(vector<int>& nums, int k) {
