@@ -1,8 +1,16 @@
 class Solution {
-    // 用對單字的每個位置枚舉a~z的方式來做BFS, 一路做到能找到終點為止, 
-    // 複雜度是O(n*26^l), 非常大, l是單詞長度, n是單詞數目
+    /*
+    用對單字的每個位置枚舉a~z的方式來做BFS, 一路做到能找到終點為止
 
-    // 可以靠雙向BFS的技巧來優化, 做到O(n*26^(l/2))
+    複雜度修正：
+    time: O(n * 26 * l), n 是 # of word in wordlist, l is length of word
+    space: O(n)
+
+    Explain: 每一個單詞得到它所有距離為1的單詞（neighbor）的時間複雜度是O(26*l); 
+    如果 wordlist 中有n個詞，那麼得到所有單詞的 neighbor 的時間複雜度是O(n*26*l)
+    而如果存在從 begin 到 end 的通路，它一定這n*26*l個結果中。
+    這一過程也對應你代碼中的兩個for循環。所以時間複雜度應該是O(n*26*l) -> O(n*l).
+    */ 
 public:
     int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
         unordered_set<string> dict(wordList.begin(), wordList.end());

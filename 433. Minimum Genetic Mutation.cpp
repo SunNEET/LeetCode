@@ -6,12 +6,9 @@ class Solution {
         (2) 每層BFS的時候都先記住目前的sz是多少，只 expand 當前 layer 的狀態，push進queue的等下輪再處理
         
         *時間&空間複雜度還不太確定是不是這樣算*
-        Time: O(N*M*K), N是起始字串的長度(8), M是基因字元的數量(4), K是bank裡的數量
-        (1) We are generating mutations by changing each letter in start string. 
-            Then, We will have O(N * M) mutations.
-        (2) We will add at most O(K) mutations into queue 
-            and there is no duplicate because of set
-        Space: O(N*M)
+        參考 127. Word Ladder
+        Time: O(n*4*l), n 是 # of gene in bank, l is length of word 
+        Space: O(n)
     */
 public:
     int minMutation(string start, string end, vector<string>& bank) {
