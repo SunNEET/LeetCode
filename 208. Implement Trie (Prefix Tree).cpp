@@ -66,6 +66,19 @@ public:
 };
 
 // 簡化查找部分的寫法
+/*
+    TrieNode:
+    (1) 需要一個陣列存指向26(或更多)個字母節點的指標
+    (2) 一個 boolean 代表這個有 word 結束在這個位置
+
+    Trie:
+    (1) 定義一個 root
+    (2) 定義一個 general 的 find，他會在 trie 上移動，當把 word 走完或遇到 NULL 節點就 return
+    (3) insert: 這邊跟舊的方法一樣
+    (4) search: 拿 find(word) 的回傳結果，判斷是否最後停在非NULL且isWord的節點
+    (5) startWith: 拿 find(prefix) 回傳結果，判斷是否停在非NULL節點上就好
+
+*/
 class TrieNode {
 public:
     TrieNode* next[26];
@@ -81,7 +94,7 @@ private:
     TrieNode* find(string word) {
         TrieNode* run = root;
         // 在 Trie 樹上移動的時候不先判斷有沒有字母節點，就一直給他移動
-        // 最後 return 的時候再判斷是不是停在 isWord 上 還有沒有跑到NULL節點
+        // 最後 return 的時候再判斷是不是停在 isWord 上和有沒有跑到NULL節點
         for(int i=0; i<word.length() && run!=NULL; i++) 
             run = run->next[word[i]-'a'];
         return run ;
