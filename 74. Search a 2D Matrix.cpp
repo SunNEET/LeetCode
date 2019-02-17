@@ -1,6 +1,8 @@
 class Solution {
-    // 兩次二分搜解決
-    // 或是也可以直接套用 LC 240 的做法，從右上角開始縮減狀態空間
+    /*
+        兩次二分搜解決
+        或是也可以直接套用 LC 240 的做法，從右上角開始縮減狀態空間
+    */
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
         if(matrix.size()==0 || matrix[0].size()==0) return false;

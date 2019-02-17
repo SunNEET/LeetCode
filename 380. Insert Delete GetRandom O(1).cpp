@@ -7,7 +7,6 @@ class RandomizedSet {
         Edge cases: RandomizedSet obj = new RandomizedSet();
         (1) 一開始直接 obj.remove() 
         (2) 重複 insert 同一個 val，然後 remove(val) 數次
-        (3) 
     */
 private:
     vector<int> nums;
@@ -20,7 +19,7 @@ public:
     
     /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
     bool insert(int val) {
-        if(v_idx.count(val)>0) return false;
+        if(v_idx.count(val)) return false;
         nums.push_back(val);
         v_idx[val] = (int)nums.size()-1;
         return true;
@@ -28,7 +27,7 @@ public:
     
     /** Removes a value from the set. Returns true if the set contained the specified element. */
     bool remove(int val) {
-        if(v_idx.count(val)==0) return false;
+        if(!v_idx.count(val)) return false;
         int last = nums.back();
         
         // In here, not only copy the last value to where val is,
