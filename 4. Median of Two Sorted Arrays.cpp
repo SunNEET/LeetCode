@@ -15,7 +15,14 @@ class Solution {
         是偶數的話，就是 (max(x2,y2) + min(x3,y3))/2
 
         Time: O(log(min(n,m))), where n is size of nums1, m is size of nums2
-        Space
+        Space: O(1)
+
+        We can easily do it in O(n+m) time complexity, just keep comparing their values from their beginning
+        But if it need to be done in O(log(m+n)), it's straightforward we need to perform
+        binary search on a sorted list or the input data need to be a binary tree structure.
+        In this case, the input data are two sorted array, so we should use binary search to
+        reach this time complexity.
+
     */
 private:
 

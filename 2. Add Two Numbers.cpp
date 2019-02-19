@@ -7,7 +7,17 @@
  * };
  */
 class Solution {
-    
+    /*
+        To simplify the logic inside while loop, I use a dummy node.
+        Later I'll make its next connect to the beginning of the sum.
+
+        To address a condition that two linked list lengths are different,
+        I'll check if they already arrived the end of the list before
+        adding its value to sum or moving to next node.
+
+        Time: O(max(|l1|,|l2|))
+        Space: O(1)
+    */
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         ListNode dummy(0);

@@ -1,6 +1,12 @@
 class Solution {
     /*
-        用 hashMap 紀錄 for 到目前為止掃過的數字，然後每次有新數字都去看hashmap裡有沒有 target-nums[i] 的數字存在
+        用 hashMap 紀錄 for 到目前為止掃過的數字，
+        然後每次有新數字都去看hashmap裡有沒有 target-nums[i] 的數字存在
+        
+        To solve it in O(N) time complexity, we can use a hashmap to record
+        what values we've traverse, and then check if target-nums[i] exists in the 
+        hashmap. If so, that means we find an answer as target-nums[i] plus nums[s] 
+        equals to target.
 
         Two pointer + hashMap
         Time complexity: O(N)

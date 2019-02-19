@@ -14,6 +14,17 @@ class LRUCache {
         void splice (const_iterator position, list& x, const_iterator i);
                                     ^ 插入的位置 ^ 來自哪個list ^ 該list的iterator
         
+        We need two data structures, hashmap and doubly linked list, to address this problem.
+        The key of the hashmap is the key of the key-value we input,
+        and its value is an iterator, pointing to a node on the linked list
+        Hashmap is used to determine if the input key exists or not, and quickly find out where
+        the node is on the linked list.
+
+        Doubly linked list is used as cache, I'll store pair<int,int> inside it.
+        The first element of pair is key, and the second one is value.
+        I'll move the recent used node towards beginning of the list by using its iterator and splice
+
+
     */
 public:
     LRUCache(int capacity):capacity_(capacity) {
