@@ -38,6 +38,9 @@ class Solution {
         DP[i][j] would be true if DP[i+1][j-1] and s[i]==s[j] are true.
         Initially we set DP[i][i] to true and DP[i][i+1] to true if s[i] == s[i+1]
         Then enumerate length of substring and starting position
+
+        Time: O(N^2)
+        Space: O(N^2)
     */
 public:
     string longestPalindrome(string s) {

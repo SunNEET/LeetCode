@@ -9,7 +9,7 @@
 class Solution {
     /*
         用dummy.next指向新的開頭, tail = &dummy
-        
+        l1 l2 比較哪個比較小就接到哪個
     */
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {

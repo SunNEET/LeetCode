@@ -7,17 +7,14 @@ class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
         vector<vector<int>> res;
-        //
         sort(nums.begin(), nums.end());
         for(int i=0; i<nums.size(); i++) {
-            int target = -nums[i], last = INT_MIN;
+            int target = -nums[i];
             int left = i+1, right = nums.size()-1;
             while(left < right) {
-                while(left < right && nums[left] + nums[right] > target) right--;
-                if( left < right && nums[left] + nums[right] == target) {
-                    vector<int> tmp = {nums[i], nums[left], nums[right]};
-                    res.push_back(tmp);
-                }
+                while(left < right && (nums[left] + nums[right]) > target) right--;
+                if( left < right && nums[left] + nums[right] == target)
+                    res.push_back(vector<int>{nums[i], nums[left], nums[right]});
                 left++;
                 while(left < right && nums[left] == nums[left-1]) left++;
             }
