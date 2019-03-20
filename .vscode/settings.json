@@ -1,6 +1,10 @@
 {
     "files.associations": {
         "string": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "initializer_list": "cpp",
+        "iterator": "cpp",
+        "string_view": "cpp",
+        "utility": "cpp"
     }
 }
