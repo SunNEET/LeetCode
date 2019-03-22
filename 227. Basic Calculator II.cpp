@@ -1,6 +1,6 @@
 class Solution {
     /*
-        我的目標是把乘法跟除法的操作在掃過去的時候就處理好，將 result push 進 stack 裡
+        目標是把乘法跟除法的操作在掃過去的時候就處理好，將 result push 進 stack 裡
         普通的加跟減也就是 push 數字進去而已，這樣最後把 stack 裡的數字 add up 就好了
         
         對當前的數字做操作的時機，是在遇到下個運算符號or到尾巴的時候
