@@ -4,7 +4,7 @@ class Solution {
         然後每次有新數字都去看hashmap裡有沒有 target-nums[i] 的數字存在
         
         To solve it in O(N) time complexity, we can use a hashmap to record
-        what values we've traverse, and then check if target-nums[i] exists in the 
+        what values we've traversed, and then check if target-nums[i] exists in the 
         hashmap. If so, that means we find an answer as target-nums[i] plus nums[s] 
         equals to target.
 

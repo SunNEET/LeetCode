@@ -5,7 +5,6 @@ class Solution {
     // "bac" 也會跟上面一樣
 public:
     vector<vector<string>> groupAnagrams(vector<string>& strs) {
-        
         unordered_map<string,vector<string>> hash2;
         vector<vector<string>> ans;
         for(int i=0;i<strs.size();i++) {
@@ -14,7 +13,7 @@ public:
                 hash1[strs[i][j]-'a']++;
             string cnt = "";
             for(int i=0;i<26;i++)
-                cnt += "#" + to_string(hash1[i]);
+                cnt += "#" + to_string(hash1[i]); // "abc" --> #1#1#1#0
             hash2[cnt].push_back(strs[i]);
         }
         for(auto it = hash2.begin();it!=hash2.end();it++)

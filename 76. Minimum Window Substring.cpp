@@ -1,6 +1,5 @@
 class Solution {
     /*
-        
         用一個 hashmap 來記錄 t 裡字元的出現次數，這表示我們至少要找這個元素幾次，然後用 two pointer 掃 s。
         宣告一個 counter = T 的長度，表示需要找到這麼多目標。
         接著如果做 sliding window 時， r 遇到的是 hashmap 裡的元素，

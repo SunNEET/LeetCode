@@ -6,8 +6,7 @@ class Solution {
     每格的水的高度求法: h = min(left_max,right_max) - height[i]; 淺顯易懂
     但直接雙層迴圈(第一層枚舉要計算高度的格子, 第二層分別找左邊最高跟右邊最高)枚舉的話, 時間複雜度會上到O(N^2)
     
-    這邊可以用DP把到[0~i]為止, 左邊的最高值存起來
-    以及[i~n]為止, 右邊最高的值存起來
+    這邊可以用DP把[0~i]為止, 左邊的最高值存起來，以及[i~n]為止, 右邊最高的值存起來
     然後就可以用一個迴圈來求上面提過的式子了
 
     Time: O(N)
@@ -33,12 +32,12 @@ public:
 
 class Solution {
 /*
-    實際上可以不用 extra space，用 two pointer 就行了。想法很類似，一樣是一次處理一個 bit。
+    實際上可以不用 extra space，用 two pointer 就行了。想法很類似，一樣是一次處理一個unit。
     當 A[left] <= A[right]，表示當前左界的高度比較矮，所以往這邊注水的話，右邊比較高或一樣高的那個，
     是一定能擋住的。有點像我們從左右一次放一個箱子進去看能 trap 住多少水
     
     Time: O(N)
-    Space: O(N)
+    Space: O(1)
 */
 public:
     int trap(vector<int>& height) {
@@ -48,11 +47,11 @@ public:
         while(left <= right) {
             if(height[left] <= height[right]) {
                 if(height[left] >= maxleft) maxleft = height[left];
-                else res += min(maxleft,height[right]) - height[left];
+                else res += min(maxleft, height[right]) - height[left];
                 left++;
             } else {
                 if(height[right] >= maxright) maxright = height[right];
-                else res += min(maxright,height[left]) - height[right];
+                else res += min(maxright, height[left]) - height[right];
                 right--;
             }
         }
